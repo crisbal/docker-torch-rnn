@@ -45,8 +45,9 @@ RUN luarocks make hdf5-0-0.rockspec
 
 
 #CUDA
-luarocks install cutorch
-luarocks install cunn
+WORKDIR /root
+RUN luarocks install cutorch
+RUN luarocks install cunn
 
 #Done!
 WORKDIR /root/torch-rnn
