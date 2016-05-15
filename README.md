@@ -37,9 +37,9 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
 3. Train 
 
     ```
-    th train.lua \\
-    -input_h5 data/tiny-shakespeare.h5 \\
-    -input_json data/tiny-shakespeare.json \\
+    th train.lua \
+    -input_h5 data/tiny-shakespeare.h5 \
+    -input_json data/tiny-shakespeare.json \
     -gpu -1
     ```
 
@@ -64,8 +64,8 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
 4. Train 
     
     ```
-    th train.lua \\
-    -input_h5 data/tiny-shakespeare.h5 \\
+    th train.lua \
+    -input_h5 data/tiny-shakespeare.h5 \
     -input_json data/tiny-shakespeare.json
     ```
 
