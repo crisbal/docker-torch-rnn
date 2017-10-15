@@ -29,7 +29,7 @@ ENV LUA_CPATH='/root/torch/install/lib/?.so;'$LUA_CPATH
 
 #torch-rnn and python requirements
 WORKDIR /root
-RUN git clone https://github.com/jcjohnson/torch-rnn && \
+RUN git clone https://github.com/gabrielegiannini/torch-rnn-repo && \
     pip install -r torch-rnn/requirements.txt
 
 #Lua requirements
