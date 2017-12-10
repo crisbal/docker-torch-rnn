@@ -13,7 +13,8 @@ RUN apt-get -y install \
     python-pip \
     git \
     libhdf5-dev \
-    software-properties-common
+    software-properties-common \
+    libopenblas-dev
 
 # Torch and luarocks
 RUN git clone https://github.com/torch/distro.git /root/torch --recursive && cd /root/torch && \
@@ -26,6 +27,13 @@ ENV PATH=/root/torch/install/bin:$PATH
 ENV LD_LIBRARY_PATH=/root/torch/install/lib:$LD_LIBRARY_PATH
 ENV DYLD_LIBRARY_PATH=/root/torch/install/lib:$DYLD_LIBRARY_PATH
 ENV LUA_CPATH='/root/torch/install/lib/?.so;'$LUA_CPATH
+ENV CMAKE_LIBRARY_PATH=/opt/OpenBLAS/lib/:$CMAKE_LIBRARY_PATH
+ENV LD_LIBRARY_PATH=/opt/OpenBLAS/lib/:$LD_LIBRARY_PATH
+
+# number of torch threads to use
+# https://github.com/jcjohnson/torch-rnn/issues/34
+ENV OMP_NUM_THREADS=4
+ENV USE_OPENMP=1
 
 #torch-rnn and python requirements
 WORKDIR /root
