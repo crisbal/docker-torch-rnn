@@ -1,4 +1,4 @@
-FROM nvidia/cuda:7.5
+FROM nvidia/cuda:7.5-devel-ubuntu14.04
 MAINTAINER Cristian Baldi "bld.cris.96@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
