@@ -8,14 +8,34 @@ Docker images for using torch-rnn (https://github.com/jcjohnson/torch-rnn)
     * Based on `ubuntu:14.04`
     * Allows usage of torch-rnn in CPU mode
 * `crisbal/torch-rnn:cuda6.5`
-    * Based on `nvidia/cuda:6.5` 
+    * Based on `nvidia/cuda:6.5`
     * Allows usage of torch-rnn in GPU mode (Cuda 6.5 support)
     * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
-* `crisbal/torch-rnn:cuda7.5`
-    * Based on `nvidia/cuda:7.5`
+* `lordalfred/docker-torch-rnn:cuda7.5`
+    * Based on `nvidia/cuda:7.5-devel-ubuntu14.04`
     * Allows usage of torch-rnn in GPU mode (Cuda 7.5 support)
     * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
-    
+* `lordalfred/docker-torch-rnn:cuda8.0`
+    * Based on `nvidia/cuda:8.0-devel-ubuntu16.04`
+    * Allows usage of torch-rnn in GPU mode (Cuda 8.0 support)
+    * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
+* `lordalfred/docker-torch-rnn:cuda9.1`
+    * Based on `nvidia/cuda:9.1-devel-ubuntu16.04`
+    * Allows usage of torch-rnn in GPU mode (Cuda 9.1 support)
+    * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
+* `lordalfred/docker-torch-rnn:cuda9.2`
+    * Based on `nvidia/cuda:9.2-devel-ubuntu16.04`
+    * Allows usage of torch-rnn in GPU mode (Cuda 9.2 support)
+    * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
+* `lordalfred/docker-torch-rnn:cuda10.0` (**requires nvidia-docker v2**)
+    * Based on `nvidia/cuda:10.0-devel-ubuntu16.04`
+    * Allows usage of torch-rnn in GPU mode (Cuda 10.0 support)
+    * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
+* `lordalfred/docker-torch-rnn:10.0-ubuntu18.04` (**requires nvidia-docker v2**)
+    * Based on `nvidia/cuda:10.0-devel-ubuntu18.04`
+    * Allows usage of torch-rnn in GPU mode (Cuda 10.0 support)
+    * Only run with nvidia-docker https://github.com/NVIDIA/nvidia-docker
+
 ## How to
 
 More details here: https://github.com/jcjohnson/torch-rnn#usage
@@ -34,7 +54,7 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
     --output_json data/tiny-shakespeare.json
     ```
 
-3. Train 
+3. Train
 
     ```
     th train.lua \
@@ -51,7 +71,7 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
 1. Install nvidia-docker
     * https://github.com/NVIDIA/nvidia-docker
 2. Start bash in the container
-    * `nvidia-docker run --rm -ti crisbal/torch-rnn:cuda7.5 bash`
+    * `nvidia-docker run --rm -ti lordalfred/docker-torch-rnn:cuda10.0 bash`
 3. Preprocess the sample data
 
     ```
@@ -61,8 +81,8 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
     --output_json data/tiny-shakespeare.json
     ```
 
-4. Train 
-    
+4. Train
+
     ```
     th train.lua \
     -input_h5 data/tiny-shakespeare.h5 \
