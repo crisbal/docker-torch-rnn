@@ -13,7 +13,8 @@ RUN apt-get -y install \
     python-pip \
     git \
     libhdf5-dev \
-    software-properties-common
+    software-properties-common \
+    libssl-dev
 
 # Fix 'sudo: command not found'
 # https://github.com/torch/distro/blob/master/install-deps contains 'sudo', but nvidia:cuda removed sudo: https://github.com/crisbal/docker-torch-rnn/issues/9#issuecomment-365362656
@@ -86,5 +87,11 @@ RUN cd /root/torch/extra/cutorch/ && luarocks make rocks/cutorch-scm-1.rockspec
 #RUN luarocks install cutorch
 RUN luarocks install cunn
 
+RUN cd /root && git clone https://github.com/karpathy/char-rnn.git
+#RUN cd /root/char-rnn && th train.lua -data_dir data/some_folder -rnn_size 512 -num_layers 2 -dropout 0.5
+
 #Done!
-WORKDIR /root/torch-rnn
+WORKDIR /root/char-rnn
+
+# docker run --runtime=nvidia mherkazandjian/char-rnn:latest th train.lua -data_dir data/tinyshakespeare -rnn_size 512 -num_layers 2 -dropout 0.5
+CMD ["/bin/bash --rcfile ~/.bashrc"]
